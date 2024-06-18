@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- Задание по Vue 1. Создать кнопку "Перевернуть". При клике на кнопку текст
+    кнопки, должен перевернуться и отобразиться в обратном порядке. 
+    2. Есть список элементов. Пользователь может добавлять новые элементы списка с
+    текстом “Новый элемент списка” нажав на кнопку "Добавить". 
+    3. *Дополнительное задание: При клике на элемент списка он должен быть удален.
+    (по желанию) -->
+
+    <div id="app">
+      <button @click="changeOrder">{{ message }}</button>
+
+      <div class="list">
+        <input type="text" v-model="newElement" />
+        <button @click="add">{{ addMessage }}</button>
+        <ul>
+          <li v-for="elem in elements" :key="elem.id" v-on:click="removeElem">
+            {{ elem }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        data() {
+          return {
+            message: "ПЕРЕВЕРНУТЬ",
+            addMessage: "Добавить",
+            elements: ["element1", "element2", "element3"],
+            newElement: "",
+          };
+        },
+        methods: {
+          changeOrder() {
+            this.message = this.message.split("").reverse().join("");
+          },
+          add() {
+            this.elements.push(this.newElement);
+            this.newElement = "";
+          },
+          removeElem(event) {
+            event.target.remove();
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

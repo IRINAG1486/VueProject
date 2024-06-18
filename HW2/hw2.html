@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- *Часть 2. Задание Vue** Вы разрабатываете приложение для отображения и
+    сортировки списка товаров. У вас есть массив объектов products, где каждый
+    объект представляет товар с его названием и ценой. Вам необходимо отобразить
+    список товаров и предоставить пользователю возможность сортировать товары по
+    цене (по возрастанию и по убыванию). -->
+    <div id="app">
+      <ul>
+        <li v-for="item in products" :key="item.id">{{ item }}</li>
+      </ul>
+      <button v-on:click="sortUp">{{ messageButtonUp }}</button>
+      <button v-on:click="sortDown">{{ messageButtonDown }}</button>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        data() {
+          return {
+            products: [
+              {
+                name: "item1",
+                price: 100,
+              },
+              {
+                name: "item2",
+                price: 50,
+              },
+              {
+                name: "item3",
+                price: 45,
+              },
+              {
+                name: "item4",
+                price: 150,
+              },
+              {
+                name: "item5",
+                price: 120,
+              },
+            ],
+            messageButtonUp: "Сортировать по возрастанию",
+            messageButtonDown: "Сортировать по убыванию",
+          };
+        },
+        methods: {
+          sortUp() {
+            this.products = this.products.sort((a, b) => a.price - b.price);
+          },
+          sortDown() {
+            this.products = this.products.sort((a, b) => b.price - a.price);
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
