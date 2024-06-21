@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylemaket2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <header class="header center">
+      <div class="header__left-container">
+        <a href="./maket1.html" class="logo">
+          <img
+            src="./hwimage/Logo.png"
+            alt="header logo"
+            width="34"
+            height="34"
+          />
+          <img src="./hwimage/Interno.png" alt="interno text" />
+        </a>
+      </div>
+      <div class="header__left-container">
+        <a href="#" class="header__right-link">Домой</a>
+        <a href="#" class="header__right-link">Проект</a>
+        <a href="#" class="header__right-link">Блог</a>
+      </div>
+    </header>
+    <section class="navigation center">
+      <div class="navigation__text">
+        <div class="navigation__text-title">
+          <h1 class="navigation__title">Статьи &</h1>
+          <h1 class="navigation__title">Новости</h1>
+        </div>
+        <div class="navigation__text-links">
+          <a href="#" class="navigation__text-link">Домой /</a>
+          <a href="#" class="navigation__text-link">Блог</a>
+        </div>
+      </div>
+    </section>
+    <section class="post center">
+      <h1 class="post__heading">Последний пост</h1>
+      <div class="post__information">
+        <img class="post__image" src="./hw2image/post.png" alt="post" />
+        <div class="post__text">
+          <h2 class="post__text-title">
+            Low Cost Latest Invented Interior Designing Ideas
+          </h2>
+          <p class="post__text-description">
+            С того времени этот, похожий на латинский, текст стал стандартом в
+            печатной промышленности для примеров шрифтов и текстов. Перед
+            появлением электронных издательств дизайнеры импровизировали в
+            работе над макетами, изображая текст при помощи волнистых линий. С
+            появлением самоклеющихся наклеек с напечатанным текстом «Lorem
+            ipsum» появился более реалистичный способ обозначения расположения
+            текста на странице.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="articles" class="articles center">
+      <h2 class="articles__heading">{{ articleTitle }}</h2>
+      <div class="articles__main">
+        <div
+          v-for="article in listOfArticles"
+          :key="article.id"
+          class="articles__main-box"
+        >
+          <div class="articles__picture">
+            <img
+              :src="'./hw2image/' + article.image"
+              alt="article 1"
+              class="articles__picture-img"
+            />
+            <p class="articles__picture-text">{{ article.imageText }}</p>
+          </div>
+          <div class="articles__main-content">
+            <h3 class="articles__main-title">{{ article.itemTitle}}</h3>
+            <div class="articles__main-description">
+              <p class="articles__main-deta">{{ article.itemData}}</p>
+              <button class="articles__main-button">
+                <img src="./hwimage/articleButton.png" alt="button" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="articles__buttons">
+        <button class="articles__button">
+          <p class="articles__button-text">01</p>
+        </button>
+        <button class="articles__button">
+          <p class="articles__button-text">02</p>
+        </button>
+        <button class="articles__button">
+          <p class="articles__button-text">03</p>
+        </button>
+        <button class="articles__button-last">
+          <svg
+            width="9"
+            height="16"
+            viewBox="0 0 9 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.55714 15L7.5 8.31429L1.55714 1.62857"
+              stroke="#292F36"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <!-- <img src="./hwimage/Vector2.png" alt="" /> -->
+        </button>
+      </div>
+    </section>
+    <footer class="footer center">
+      <div class="footer__logo">
+        <a href="./maket1.html" class="logo">
+          <img
+            src="./hwimage/Logo.png"
+            alt="header logo"
+            width="34"
+            height="34"
+          />
+          <img src="./hwimage/Interno.png" alt="interno text" />
+        </a>
+        <div class="footer__net">
+          <a href="#" class="footer__net-link">
+            <img src="./hwimage/twit.png" alt="twiter" />
+          </a>
+          <a href="#" class="footer__net-link">
+            <img src="./hwimage/in.png" alt="in"
+          /></a>
+        </div>
+      </div>
+      <div class="footer__pages">
+        <h3 class="footer__pages-title">Страницы</h3>
+        <a href="#" class="footer__pages-link">Домой</a>
+        <a href="#" class="footer__pages-link">Проект</a>
+        <a href="#" class="footer__pages-link">Блог</a>
+      </div>
+      <div class="footer__contacts">
+        <h3 class="footer__contacts-title">Контакты</h3>
+        <p class="footer__contacts-address">
+          55 East Birchwood Ave. Brooklyn, New York 11201
+        </p>
+        <p class="footer__contacts-address">contact@interno.com</p>
+        <p class="footer__contacts-address">(123) 456 - 7890</p>
+      </div>
+    </footer>
+
+    <script src="./maket2script.js"></script>
+  </body>
+</html>
